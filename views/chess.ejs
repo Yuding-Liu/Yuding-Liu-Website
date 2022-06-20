@@ -1,15 +1,33 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Play Chinese Chess</title>
-		<link rel="stylesheet" href="/css/index.css">
-		<link rel="stylesheet" href="/css/home.css">
-	</head>
-	<body>
-		<section>
-            <h1>Play Chinese Chess</h1>
-        </section>
-	</body>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Play Chinese Chess</title>
+	<link rel="stylesheet" href="/css/chess.css">
+	<link rel="stylesheet" href="/css/app.css">
+</head>
+
+<body>
+	<section class="chessApp">
+		<nav class="nav">
+			<ul>
+				<li class="user"><%= user.name || user.username || user.email %></li>
+				<li>
+					<form action="/logout" method="post">
+						<button class="logout" type="submit">Sign out</button>
+					</form>
+				</li>
+			</ul>
+		</nav>
+
+		<h1>Play Chinese Chess</h1>
+
+		<img src="/images/xiangqiboard.png" alt="Board">
+	</section>
+
+
+</body>
+
 </html>
