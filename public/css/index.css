@@ -347,6 +347,9 @@ html .clear-completed:active {
 	text-decoration: none;
 }
 
+.chessButton a {
+	color: white;
+}
 
 /*
 	Hack to remove background from Mobile Safari.
