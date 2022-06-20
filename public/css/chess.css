@@ -7,3 +7,11 @@
 h1 {
     text-align: center;
 }
+
+.chessBoardImg {
+    width: 550px;
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
