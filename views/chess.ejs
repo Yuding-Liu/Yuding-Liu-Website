@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<section class="chessApp">
+	<section id="chessAppHeader">
 		<nav class="nav">
 			<ul>
 				<li class="user"><%= user.name || user.username || user.email %></li>
@@ -24,27 +24,15 @@
 
 		<h1>Play Chinese Chess</h1>
 
-		<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
 	</section>
 
+	<section id="chessGame">
+		<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
+		<div class="chess_piece_container" data-piecetype="马" data-piececolor="red"></div>
+		<div class="chess_piece_container" data-piecetype="帅" data-piececolor="black"></div>
+	</section>
 
-	<p>
-		This is the first comment.
-		<!-- We will put our React component inside this div. -->
-		<div class="like_button_container" data-commentid="1"></div>
-	</p>
-
-	<p>
-		This is the second comment.
-		<!-- We will put our React component inside this div. -->
-		<div class="like_button_container" data-commentid="2"></div>
-	</p>
-
-	<p>
-		This is the third comment.
-		<!-- We will put our React component inside this div. -->
-		<div class="like_button_container" data-commentid="3"></div>
-	</p>
+	<script src="/behaviors/chessPieceBehavior.js"></script>
 
 	<!-- Load React. -->
 	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
@@ -53,7 +41,7 @@
 
 	<!-- Load our React component. -->
 	<script src="/components/like_button.js"></script>
-
+	<script src="/components/chess_piece.js"></script>
 
 </body>
 
