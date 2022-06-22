@@ -30,11 +30,14 @@
 		<div class="chessGame">
 			<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
 
-			<div class="chess_piece_container" data-piecetype="將" data-piececolor="black" data-insideboard="yes"
-				data-col="5" data-row="10"></div>
-			<div class="chess_piece_container" data-piecetype="兵" data-piececolor="red" data-insideboard="yes"
-				data-col="9" data-row="4"></div>
-			<div class="chess_pieces_container"></div>
+			<!-- <div class="chess_piece_container" data-piecetype="將" data-piececolor="black" data-insideboard="yes"
+				data-col="5" data-row="10"></div> -->
+
+			<% chessPieceInfo.forEach(function(chessPieceInfoItem) { %>
+			<div class="chess_piece_container" data-piecetype=<%= chessPieceInfoItem.piecetype %>
+				data-piececolor=<%= chessPieceInfoItem.piececolor %> data-insideboard=<%= chessPieceInfoItem.insideboard %>
+				data-col=<%= chessPieceInfoItem.col %> data-row=<%= chessPieceInfoItem.row %>></div>
+			<% }); %>
 
 		</div>
 

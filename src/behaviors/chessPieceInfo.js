@@ -127,7 +127,134 @@ const chessPieceInfo = [
         col: 9,
         row: 4
     },
+    {
+        id: 17,
+        piecetype: "車",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 1,
+        row: 10
+    },
+    {
+        id: 18,
+        piecetype: "馬",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 2,
+        row: 10
+    },
+    {
+        id: 19,
+        piecetype: "象",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 3,
+        row: 10
+    },
+    {
+        id: 20,
+        piecetype: "士",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 4,
+        row: 10
+    },
+    {
+        id: 21,
+        piecetype: "將",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 5,
+        row: 10
+    },
+    {
+        id: 22,
+        piecetype: "士",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 6,
+        row: 10
+    },
+    {
+        id: 23,
+        piecetype: "象",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 7,
+        row: 10
+    },
+    {
+        id: 24,
+        piecetype: "馬",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 8,
+        row: 10
+    },
+    {
+        id: 25,
+        piecetype: "車",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 9,
+        row: 10
+    },
+    {
+        id: 26,
+        piecetype: "炮",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 2,
+        row: 8
+    },
+    {
+        id: 27,
+        piecetype: "砲",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 8,
+        row: 8
+    },
+    {
+        id: 28,
+        piecetype: "卒",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 1,
+        row: 7
+    },
+    {
+        id: 29,
+        piecetype: "卒",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 3,
+        row: 7
+    },
+    {
+        id: 30,
+        piecetype: "卒",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 5,
+        row: 7
+    },
+    {
+        id: 31,
+        piecetype: "卒",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 7,
+        row: 7
+    },
+    {
+        id: 32,
+        piecetype: "卒",
+        piececolor: "black",
+        insideboard: "yes",
+        col: 9,
+        row: 7
+    },
 ];
 
-
-export { chessPieceInfo }; 
+module.exports = { chessPieceInfo };
