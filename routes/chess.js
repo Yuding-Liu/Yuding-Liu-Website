@@ -2,6 +2,7 @@ var express = require('express');
 
 var router = express.Router();
 
+
 router.get('/chess', function (req, res, next) {
     if (!req.user) {
         return res.render('home');
@@ -9,7 +10,8 @@ router.get('/chess', function (req, res, next) {
     next();
 }, function (req, res, next) {
     res.render('chess', {
-        user: req.user
+        user: req.user,
+        chessPieceInfo: chessPieceInfo
     });
 });
 

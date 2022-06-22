@@ -18,4 +18,17 @@ h1 {
 
 .chess_piece_container {
     position: absolute;
+    right: 0px;
+    bottom: 0px;
+    cursor: pointer;
+}
+
+.chess_pieces_container {
+    position: absolute;
+
+}
+
+.chessGame {
+    position: relative;
+    background-color: aliceblue;
 }

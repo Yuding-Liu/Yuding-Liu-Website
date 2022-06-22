@@ -27,9 +27,17 @@
 	</section>
 
 	<section id="chessGame">
-		<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
-		<div class="chess_piece_container" data-piecetype="马" data-piececolor="red"></div>
-		<div class="chess_piece_container" data-piecetype="帅" data-piececolor="black"></div>
+		<div class="chessGame">
+			<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
+
+			<div class="chess_piece_container" data-piecetype="將" data-piececolor="black" data-insideboard="yes"
+				data-col="5" data-row="10"></div>
+			<div class="chess_piece_container" data-piecetype="兵" data-piececolor="red" data-insideboard="yes"
+				data-col="9" data-row="4"></div>
+			<div class="chess_pieces_container"></div>
+
+		</div>
+
 	</section>
 
 	<script src="/behaviors/chessPieceBehavior.js"></script>
@@ -42,6 +50,7 @@
 	<!-- Load our React component. -->
 	<script src="/components/like_button.js"></script>
 	<script src="/components/chess_piece.js"></script>
+	<script src="/components/chess_pieces.js" type="module"></script>
 
 </body>
 
