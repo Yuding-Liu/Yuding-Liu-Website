@@ -23,9 +23,6 @@ class ChessPiece extends React.Component {
         this.piecePosition = getPositionByColAndRow(this.props.col, this.props.row);
     }
 
-
-
-
     render() {
         const chessStyle = {
             color: this.props.pieceColor,
@@ -39,8 +36,9 @@ class ChessPiece extends React.Component {
             position: "relative",
             bottom: this.piecePosition.bottom + "px",
             right: this.piecePosition.right + "px",
-            display: this.props.insideBoard ? "block" : "none",
-            transform: this.props.pieceColor === "red" ? "rotate(0)" : "rotate(180deg)",
+            display: "block",
+            transform: this.props.pieceColor === "black" ? "rotate(180deg)" : "rotate(0deg)",
+            opacity: this.props.pieceColor === "white" ? "0.0" : "1.0",
         }
 
         return e(

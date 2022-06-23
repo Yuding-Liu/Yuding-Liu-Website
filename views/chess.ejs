@@ -30,13 +30,15 @@
 		<div class="chessGame">
 			<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
 
+			<img src="/images/pieceSelected.png" class="pieceSelectedIndicator" id="pieceSelectedIndicator1">
+
 			<% chessPieceInfo.forEach(function(chessPieceInfoItem) { %>
 			<div class="chess_piece_container" data-piecetype=<%= chessPieceInfoItem.piecetype %>
 				data-piececolor=<%= chessPieceInfoItem.piececolor %> data-insideboard=<%= chessPieceInfoItem.insideboard %>
 				data-col=<%= chessPieceInfoItem.col %> data-row=<%= chessPieceInfoItem.row %> id=<%= chessPieceInfoItem.id %>></div>
 			<% }); %>
 
-			<img src="/images/pieceSelected.png" class="pieceSelectedIndicator" id="pieceSelectedIndicator1">
+			
 
 		</div>
 

@@ -16,7 +16,7 @@ function clickPiece(piece) {
     const pieceSelectedIndicator1Position = getPositionByColAndRow(col, row);
     const pieceSelectedIndicator1 = document.getElementById('pieceSelectedIndicator1');
     pieceSelectedIndicator1.style.bottom = (pieceSelectedIndicator1Position.bottom + 19) + "px";
-    pieceSelectedIndicator1.style.right = (pieceSelectedIndicator1Position.right - 15) + "px";
+    pieceSelectedIndicator1.style.right = (pieceSelectedIndicator1Position.right - 16) + "px";
 
   }
 }
