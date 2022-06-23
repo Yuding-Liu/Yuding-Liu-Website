@@ -38,7 +38,7 @@ class ChessPiece extends React.Component {
             right: this.piecePosition.right + "px",
             display: "block",
             transform: this.props.pieceColor === "black" ? "rotate(180deg)" : "rotate(0deg)",
-            opacity: this.props.pieceColor === "white" ? "0.0" : "1.0",
+            opacity: this.props.pieceColor === "white" || !this.props.insideBoard ? "0.0" : "1.0",
         }
 
         return e(
@@ -70,3 +70,22 @@ document.querySelectorAll('.chess_piece_container')
             })
         );
     });
+
+export function rerenderById(id) {
+    var element = document.getElementById(id);
+    const pieceType = element.dataset.piecetype;
+    const pieceColor = element.dataset.piececolor;
+    const insideBoard = element.dataset.insideboard;
+    const col = parseInt(element.dataset.col, 10);
+    const row = parseInt(element.dataset.row, 10);
+    const root = ReactDOM.createRoot(element);
+    root.render(
+        e(ChessPiece, {
+            pieceType: pieceType,
+            pieceColor: pieceColor,
+            insideBoard: insideBoard === "yes",
+            col: col,
+            row: row
+        })
+    );
+}
