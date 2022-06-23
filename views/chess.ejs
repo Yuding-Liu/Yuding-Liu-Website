@@ -30,20 +30,19 @@
 		<div class="chessGame">
 			<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
 
-			<!-- <div class="chess_piece_container" data-piecetype="將" data-piececolor="black" data-insideboard="yes"
-				data-col="5" data-row="10"></div> -->
-
 			<% chessPieceInfo.forEach(function(chessPieceInfoItem) { %>
 			<div class="chess_piece_container" data-piecetype=<%= chessPieceInfoItem.piecetype %>
 				data-piececolor=<%= chessPieceInfoItem.piececolor %> data-insideboard=<%= chessPieceInfoItem.insideboard %>
-				data-col=<%= chessPieceInfoItem.col %> data-row=<%= chessPieceInfoItem.row %>></div>
+				data-col=<%= chessPieceInfoItem.col %> data-row=<%= chessPieceInfoItem.row %> id=<%= chessPieceInfoItem.id %>></div>
 			<% }); %>
+
+			<img src="/images/pieceSelected.png" class="pieceSelectedIndicator" id="pieceSelectedIndicator1">
 
 		</div>
 
 	</section>
 
-	<script src="/behaviors/chessPieceBehavior.js"></script>
+	<script src="/behaviors/chessPieceBehavior.js" type="module"></script>
 
 	<!-- Load React. -->
 	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
@@ -51,9 +50,8 @@
 	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
 	<!-- Load our React component. -->
-	<script src="/components/like_button.js"></script>
-	<script src="/components/chess_piece.js"></script>
-	<script src="/components/chess_pieces.js" type="module"></script>
+	<script src="/components/chess_piece.js" type="module"></script>
+
 
 </body>
 

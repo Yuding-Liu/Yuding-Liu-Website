@@ -1,9 +1,26 @@
 // Make the DIV element draggable:
 const pieces = document.getElementsByClassName("chess_piece_container");
-for (let element of pieces) {
-  dragElement(element);
+for (let piece of pieces) {
+  dragElement(piece);
+  clickPiece(piece);
 }
-dragElement(document.getElementById("mydiv"));
+
+import { getPositionByColAndRow } from "../components/chess_piece.js";
+
+function clickPiece(piece) {
+  piece.onclick = pieceOnClick;
+
+  function pieceOnClick() {
+    const col = parseInt(piece.getAttribute("data-col"));
+    const row = parseInt(piece.getAttribute("data-row"));
+    const pieceSelectedIndicator1Position = getPositionByColAndRow(col, row);
+    const pieceSelectedIndicator1 = document.getElementById('pieceSelectedIndicator1');
+    pieceSelectedIndicator1.style.bottom = (pieceSelectedIndicator1Position.bottom + 19) + "px";
+    pieceSelectedIndicator1.style.right = (pieceSelectedIndicator1Position.right - 15) + "px";
+
+  }
+}
+
 
 function dragElement(elmnt) {
   var pos1 = 0,

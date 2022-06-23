@@ -201,7 +201,7 @@ const chessPieceInfo = [
     },
     {
         id: 26,
-        piecetype: "炮",
+        piecetype: "砲",
         piececolor: "black",
         insideboard: "yes",
         col: 2,

@@ -23,12 +23,13 @@ h1 {
     cursor: pointer;
 }
 
-.chess_pieces_container {
-    position: absolute;
-
-}
-
 .chessGame {
     position: relative;
     background-color: aliceblue;
+}
+
+.pieceSelectedIndicator {
+    position: absolute;
+    width: 88px;
+    height: auto;
 }

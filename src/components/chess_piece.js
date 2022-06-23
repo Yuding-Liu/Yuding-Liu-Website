@@ -4,24 +4,26 @@ const e = React.createElement;
 
 const pieceRadius = 23;
 
+export function getPositionByColAndRow(col, row) {
+    const chessBoard = document.getElementsByClassName('chessBoardImg')[0];
+
+    var style = chessBoard.currentStyle || window.getComputedStyle(chessBoard);
+
+    var bottom = -35 + row * 61.5;
+    var right = -60 + parseFloat(style.marginRight) + col * 61.5;
+    return {
+        bottom: bottom,
+        right: right
+    };
+}
+
 class ChessPiece extends React.Component {
     constructor(props) {
         super(props);
-        this.piecePosition = this.getPositionByColAndRow(this.props.col, this.props.row);
+        this.piecePosition = getPositionByColAndRow(this.props.col, this.props.row);
     }
 
-    getPositionByColAndRow(col, row) {
-        const chessBoard = document.getElementsByClassName('chessBoardImg')[0];
 
-        var style = chessBoard.currentStyle || window.getComputedStyle(chessBoard);
-
-        var bottom = -35 + row * 62;
-        var right = -60 + parseFloat(style.marginRight) + col * 62;
-        return {
-            bottom: bottom,
-            right: right
-        };
-    }
 
 
     render() {
@@ -37,7 +39,8 @@ class ChessPiece extends React.Component {
             position: "relative",
             bottom: this.piecePosition.bottom + "px",
             right: this.piecePosition.right + "px",
-            display: this.props.insideBoard ? "block" : "none"
+            display: this.props.insideBoard ? "block" : "none",
+            transform: this.props.pieceColor === "red" ? "rotate(0)" : "rotate(180deg)",
         }
 
         return e(
