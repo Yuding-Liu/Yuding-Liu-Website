@@ -38,9 +38,8 @@ router.get('/', function (req, res, next) {
   next();
 }, fetchTodos, function (req, res, next) {
   res.locals.filter = null;
-  res.render('chess', {
+  res.render('index', {
     user: req.user,
-    chessPieceInfo: chessPieceInfo
   });
 });
 
