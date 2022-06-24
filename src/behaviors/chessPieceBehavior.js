@@ -81,7 +81,7 @@ function handleClickPiece(piece) {
 
     switch (whoseTurn) {
       case 0:
-        if (piece.getAttribute("data-piececolor") === "red") {
+        if (piece.getAttribute("data-piececolor") === "red" && piece.getAttribute("data-insideboard") == "yes") {
           placePieceSelectedIndicator(col, row, "pieceSelectedIndicator1");
           placePieceSelectedIndicator(-1, -1, "pieceSelectedIndicator2");
           ++whoseTurn;
@@ -119,7 +119,7 @@ function handleClickPiece(piece) {
         }
 
       case 2:
-        if (piece.getAttribute("data-piececolor") === "black") {
+        if (piece.getAttribute("data-piececolor") === "black" && piece.getAttribute("data-insideboard") == "yes") {
           placePieceSelectedIndicator(col, row, "pieceSelectedIndicator1");
           placePieceSelectedIndicator(-1, -1, "pieceSelectedIndicator2");
           ++whoseTurn;
