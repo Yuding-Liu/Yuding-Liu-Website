@@ -1,7 +1,7 @@
 var express = require('express');
 var db = require('../db');
 
-const { chessPieceInfo } = require("../src/behaviors/chessPieceInfo.js");
+
 
 function fetchTodos(req, res, next) {
   db.all('SELECT * FROM todos WHERE owner_id = ?', [
