@@ -4,10 +4,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Yuding Liu Website</title>
+		<%- include('partials/head.ejs'); %>
 		<link rel="stylesheet" href="/css/index.css">
 		<link rel="stylesheet" href="/css/app.css">
 	</head>
 	<body>
+		<%- include('partials/header.ejs'); %>
+
 		<section class="todoapp">
 			<nav class="nav">
 				<ul>
@@ -90,5 +93,7 @@
 		<section class="chessButton">
 			<a class="button" href="/leetcode">See Leetcode Solutions</a>
 		</section>
+
+		<%- include('partials/foot.ejs'); %>
 	</body>
 </html>

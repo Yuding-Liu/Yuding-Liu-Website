@@ -5,11 +5,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Play Chinese Chess</title>
+	<%- include('partials/head.ejs'); %>
 	<link rel="stylesheet" href="/css/chess.css">
 	<link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
+	<%- include('partials/header.ejs'); %>
+
 	<section id="chessAppHeader">
 		<nav class="nav">
 			<ul>
@@ -57,7 +60,7 @@
 	<!-- Load our React component. -->
 	<script src="/components/chess_piece.js" type="module"></script>
 
-
+	<%- include('partials/foot.ejs'); %>
 </body>
 
 </html>
