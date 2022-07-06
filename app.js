@@ -13,6 +13,7 @@ var SQLiteStore = require('connect-sqlite3')(session);
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var chessRouter = require('./routes/chess');
+var leetcodeRouter = require('./routes/leetcode');
 var app = express();
 
 app.locals.pluralize = require('pluralize');
@@ -38,6 +39,7 @@ app.use(passport.authenticate('session'));
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/', chessRouter);
+app.use('/', leetcodeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

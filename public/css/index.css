@@ -345,6 +345,7 @@ html .clear-completed:active {
     background: #d83f45;
 	text-align: center;
 	text-decoration: none;
+	margin-top: 50px;
 }
 
 .chessButton a {

@@ -1,0 +1,15 @@
+.leetcodeCol {
+    margin: 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: rgb(191, 191, 176);
+    border-style: solid;
+    text-align: center;
+}
+
+body {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 100px;
+    background-color: antiquewhite;
+}
