@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const { solutionArr } = require('../leetcodeSolutions.js');
 
 const mongoose = require('mongoose');
 
@@ -7,7 +8,7 @@ main().catch(err => console.log(err));
 
 const solutionSchema = new mongoose.Schema({
     url: String,
-    problem_id: Number
+    problemId: Number
 });
 
 const Solution = mongoose.model('Solution', solutionSchema);
@@ -17,24 +18,22 @@ async function main() {
     serializeLeetcodeData();
 
     async function serializeLeetcodeData() {
-
-    
         var solutions = await Solution.find();
-        if (solutions.length == 0) {
-            var solutionArr = [{
-                "url": "https://zhuanlan.zhihu.com/p/450700300",
-                "problem_id": "1"
-            }];
+        if (solutions == null || solutions.length == 0) {
+            // var solutionArr = [{
+            //     "url": "https://zhuanlan.zhihu.com/p/450700300",
+            //     "problemId": "1"
+            // }];
             solutionArr.forEach(element => {
                 const solution = new Solution({
                     url: element.url,
-                    problem_id: element.problem_id
+                    problemId: element.problemId
                 });
                 solution.save();
             });
-            
-        }
 
+        }
+        
     }
 }
 
@@ -52,15 +51,32 @@ router.get('/leetcode', function (req, res, next) {
 
         var solutions = await Solution.find();
 
-        solutions.sort((a, b) => a.problem_id - b.problem_id);
+        solutions.sort((a, b) => a.problemId - b.problemId);
 
         res.render('leetcode', {
             user: req.user,
             solutions: solutions
         });
     }
+});
 
+router.post('/insert', (req, res) => {
+    const problemId = parseInt(req.body.problemId);
+    const url = req.body.url;
+    console.log(problemId);
+    if (!isNaN(problemId)) {
+        saveSolution();
+    }
+    function saveSolution() {
+        const solution = new Solution({
+            url: url,
+            problemId: problemId
+        });
+        solution.save();
+    }
     
+
+    res.redirect('/leetcode');
 });
 
 module.exports = router;
