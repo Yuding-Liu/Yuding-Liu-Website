@@ -1,10 +1,6 @@
 .leetcodeCol {
-    margin: 10px;
-    border-radius: 5px;
-    border-width: 1px;
-    border-color: rgb(191, 191, 176);
-    border-style: solid;
     text-align: center;
+    margin: 15px;
 }
 
 body {
@@ -14,7 +10,23 @@ body {
     background-color: antiquewhite;
 }
 
+.btn {
+    width: 100px;
+}
+
 .form-group {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+#insert {
+    border-color: aqua;
+    border-bottom-style: solid;
+    padding-bottom: 10%;
+}
+
+#delete {
+    border-color: aqua;
+    border-bottom-style: solid;
+    padding-bottom: 10%;
 }

@@ -63,7 +63,6 @@ router.get('/leetcode', function (req, res, next) {
 router.post('/insert', (req, res) => {
     const problemId = parseInt(req.body.problemId);
     const url = req.body.url;
-    console.log(problemId);
     if (!isNaN(problemId)) {
         saveSolution();
     }
@@ -76,6 +75,21 @@ router.post('/insert', (req, res) => {
     }
     
 
+    res.redirect('/leetcode');
+});
+
+router.post('/deleteProblem', (req, res) => {
+    const problemId = parseInt(req.body.problemId);
+    if (!isNaN(problemId)) {
+        deleteSolution();
+    }
+    function deleteSolution() {
+        Solution.deleteOne({ problemId: problemId }).then(function(){
+            console.log("Data deleted"); // Success
+        }).catch(function(error){
+            console.log(error); // Failure
+        });
+    }
     res.redirect('/leetcode');
 });
 

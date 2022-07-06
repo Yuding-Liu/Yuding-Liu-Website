@@ -13,22 +13,39 @@
 </head>
 
 <body>
-        <form action="insert" method="post">
-                <div class="form-group">
-                        <label for="formGroupExampleInput">Insert new problem id</label>
-                        <input type="text" name="problemId" class="form-control" id="formGroupExampleInput" placeholder="problemId">
-                </div>
-                <div class="form-group">
-                        <label for="formGroupExampleInput2">Insert new url</label>
-                        <input type="text" name="url" class="form-control" id="formGroupExampleInput2" placeholder="url">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <div id="insert">
+                <form action="insert" method="post">
+                        <div class="form-group">
+                                <label for="InsertNewProblemId">Insert new problem id</label>
+                                <input type="text" name="problemId" class="form-control" id="InsertNewProblemId"
+                                        placeholder="problemId">
+                        </div>
+                        <div class="form-group">
+                                <label for="InsertNewProblemUrl">Insert new url</label>
+                                <input type="text" name="url" class="form-control" id="InsertNewProblemUrl"
+                                        placeholder="url">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        </div>
+
+        <div id="delete">
+                <form action="deleteProblem" method="post">
+                        <div class="form-group">
+                                <label for="DeleteByProblemId">Delete by problem id</label>
+                                <input type="text" name="problemId" class="form-control" id="DeleteByProblemId"
+                                        placeholder="problemId">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+        </div>
 
         <div class="row justify-content-md-center">
                 <% solutions.forEach(function(solution){ %>
-                        <div class="col nav-link leetcodeCol col-lg-1 col-md-2 col-sm-3"><a href=<%=solution.url %>
-                                        class="solutionCell"><%= solution.problemId %></a>
+                        <div class="col nav-link leetcodeCol col-lg-1 col-md-2 col-sm-3">
+                                <a type="button" class="btn btn-primary btn-lg" href=<%=solution.url %>  role="button" > <%= solution.problemId %></a>
+
                         </div>
                         <% }); %>
         </div>
