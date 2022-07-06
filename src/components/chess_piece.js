@@ -2,14 +2,14 @@
 
 const e = React.createElement;
 
-const pieceRadius = 23;
+const pieceRadius = 28;
 
 export function getPositionByColAndRow(col, row) {
     const chessBoard = document.getElementsByClassName('chessBoardImg')[0];
 
     var style = chessBoard.currentStyle || window.getComputedStyle(chessBoard);
 
-    var bottom = -35 + row * 61.5;
+    var bottom = -12 + row * 61.5;
     var right = -60 + parseFloat(style.marginRight) + col * 61.5;
     return {
         bottom: bottom,

@@ -7,7 +7,7 @@ body {
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 100px;
-    background-color: antiquewhite;
+    background-color: aliceblue;
 }
 
 .btn {
@@ -20,13 +20,13 @@ body {
 }
 
 #insert {
-    border-color: aqua;
+    border-color: beige;
     border-bottom-style: solid;
     padding-bottom: 10%;
 }
 
 #delete {
-    border-color: aqua;
+    border-color: beige;
     border-bottom-style: solid;
     padding-bottom: 10%;
 }
