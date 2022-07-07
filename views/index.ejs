@@ -11,17 +11,9 @@
 	<body>
 		<%- include('partials/header.ejs'); %>
 
+		
 		<section class="todoapp">
-			<nav class="nav">
-				<ul>
-					<li class="user"><%= user.name || user.username || user.email %></li>
-					<li>
-						<form action="/logout" method="post">
-							<button class="logout" type="submit">Sign out</button>
-						</form>
-					</li>
-				</ul>
-			</nav>
+			
 			<header class="header">
 				<h1>todos</h1>
 				<form action="/" method="post">
