@@ -20,10 +20,6 @@ async function main() {
     async function serializeLeetcodeData() {
         var solutions = await Solution.find();
         if (solutions == null || solutions.length == 0) {
-            // var solutionArr = [{
-            //     "url": "https://zhuanlan.zhihu.com/p/450700300",
-            //     "problemId": "1"
-            // }];
             solutionArr.forEach(element => {
                 const solution = new Solution({
                     url: element.url,

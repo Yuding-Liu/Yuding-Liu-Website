@@ -1,4 +1,4 @@
-const chessPieceInfo = [{
+const chessPieceInfoOriginalState = [{
         id: 1,
         piecetype: "俥",
         piececolor: "red",
@@ -721,5 +721,5 @@ const chessPieceInfo = [{
 ];
 
 module.exports = {
-    chessPieceInfo
+    chessPieceInfoOriginalState: chessPieceInfoOriginalState
 };
