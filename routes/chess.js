@@ -93,11 +93,14 @@ var router = express.Router();
 const { chessPieceInfoOriginalState: chessPieceInfoOriginalState } = require("../src/behaviors/chessPieceInfo.js");
 
 var chessPieceInfo = new Array();
+var gameInfo = new Object();
+var boardsInfo = new Array();
 
-async function fetchPieceInfo() {
+async function fetchDataFromDb() {
     var pieces = await Piece.find();
     // pieces.sort((a, b) => a.problemId - b.problemId);
     
+    chessPieceInfo = [];
     pieces.forEach(element => {
         chessPieceInfo.push({
             id: parseInt(element._id),
@@ -110,6 +113,25 @@ async function fetchPieceInfo() {
     });
     
     chessPieceInfo.sort((a, b) => a.id - b.id);
+
+    var games = await Game.find();
+    gameInfo = ({
+        whoseTurn: games[0].whoseTurn,
+        pieceSelectedIndicator1Col: games[0].pieceSelectedIndicator1Col,
+        pieceSelectedIndicator1Row: games[0].pieceSelectedIndicator1Row,
+        pieceSelectedIndicator2Col: games[0].pieceSelectedIndicator2Col,
+        pieceSelectedIndicator2Row: games[0].pieceSelectedIndicator2Row
+    });
+
+    boardsInfo = [];
+    var boards = await Board.find();
+    boards.forEach(element => {
+        boardsInfo.push({
+            id: parseInt(element.piece_id),
+            col: element.col,
+            row: element.row
+        })
+    });
 }
 
 router.get('/chess', function (req, res, next) {
@@ -118,10 +140,12 @@ router.get('/chess', function (req, res, next) {
     }
     next();
 }, function (req, res, next) {
-    fetchPieceInfo();
+    fetchDataFromDb();
     res.render('chess', {
         user: req.user,
-        chessPieceInfo: chessPieceInfo
+        chessPieceInfo: chessPieceInfo,
+        gameInfo: gameInfo,
+        boardsInfo: boardsInfo
     });
 });
 
