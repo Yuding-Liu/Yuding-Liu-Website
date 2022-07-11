@@ -6,51 +6,56 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Play Chinese Chess</title>
 	<%- include('partials/head.ejs'); %>
-	<link rel="stylesheet" href="/css/chess.css">
-	<link rel="stylesheet" href="/css/app.css">
+		<link rel="stylesheet" href="/css/chess.css">
+		<link rel="stylesheet" href="/css/app.css">
 </head>
 
 <body>
 	<%- include('partials/header.ejs'); %>
 
-	<section id="chessAppHeader">
+		<section id="chessAppHeader">
 
-		<h1>Play Chinese Chess</h1>
+			<h1>Play Chinese Chess</h1>
 
-	</section>
+		</section>
 
-	<section id="chessGame">
-		<div class="chessGame">
-			<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
+		<section id="chessGame">
+			<div class="chessGame">
+				<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
 
-			<img src="/images/pieceSelected.png" class="pieceSelectedIndicator" id="pieceSelectedIndicator1">
-			<img src="/images/pieceSelected.png" class="pieceSelectedIndicator" id="pieceSelectedIndicator2">
+				<img src="/images/pieceSelected.png" class="pieceSelectedIndicator" id="pieceSelectedIndicator1"
+					data-col=<%=gameInfo.pieceSelectedIndicator1Col %>
+				data-row=<%=gameInfo.pieceSelectedIndicator1Row %> >
+					<!-- <img src="/images/pieceSelected.png" class="pieceSelectedIndicator" id="pieceSelectedIndicator2"> -->
 
-			<% chessPieceInfo.forEach(function(chessPieceInfoItem) { %>
-			<div class="chess_piece_container" data-piecetype=<%= chessPieceInfoItem.piecetype %>
-				data-piececolor=<%= chessPieceInfoItem.piececolor %> data-insideboard=<%= chessPieceInfoItem.insideboard %>
-				data-col=<%= chessPieceInfoItem.col %> data-row=<%= chessPieceInfoItem.row %> id=<%= chessPieceInfoItem.id %>></div>
-			<% }); %>
-		</div>
+					<% chessPieceInfo.forEach(function(chessPieceInfoItem) { %>
+						<div class="chess_piece_container" data-piecetype=<%=chessPieceInfoItem.piecetype %>
+							data-piececolor=<%= chessPieceInfoItem.piececolor %> data-insideboard=<%=
+									chessPieceInfoItem.insideboard %>
+									data-col=<%= chessPieceInfoItem.col %> data-row=<%= chessPieceInfoItem.row %> id=<%=
+												chessPieceInfoItem.id %>></div>
+						<% }); %>
+			</div>
 
-	</section>
+		</section>
 
-	<section id="chessGameOptions">
-		<a class="button" href="">Restart</a>
+		<section id="chessGameOptions">
+			<a class="button" href="">Restart</a>
 
-	</section>
+		</section>
 
-	<!-- <script src="/behaviors/chessPieceBehavior.js" type="module"></script> -->
+		<!-- <script src="/behaviors/chessPieceBehavior.js" type="module"></script> -->
+		<script src="/behaviors/pieceSelectedIndicatorBehavior.js" type="module"></script>
 
-	<!-- Load React. -->
-	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-	<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-	<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+		<!-- Load React. -->
+		<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+		<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+		<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
-	<!-- Load our React component. -->
-	<script src="/components/chess_piece.js" type="module"></script>
+		<!-- Load our React component. -->
+		<script src="/components/chess_piece.js" type="module"></script>
 
-	<%- include('partials/foot.ejs'); %>
+		<%- include('partials/foot.ejs'); %>
 </body>
 
 </html>
