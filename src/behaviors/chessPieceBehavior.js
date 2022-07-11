@@ -46,7 +46,7 @@ function initSelectedIndicator() {
 function placePieceSelectedIndicator(col, row, indicatorId) {
   const pieceSelectedIndicatorPosition = getPositionByColAndRow(col, row);
   const pieceSelectedIndicator = document.getElementById(indicatorId);
-  pieceSelectedIndicator.style.bottom = (pieceSelectedIndicatorPosition.bottom + 19) + "px";
+  pieceSelectedIndicator.style.bottom = (pieceSelectedIndicatorPosition.bottom) + "px";
   pieceSelectedIndicator.style.right = (pieceSelectedIndicatorPosition.right - 16) + "px";
 
   if (col == -1 || row == -1) {

@@ -30,7 +30,7 @@ class ChessPiece extends React.Component {
             width: pieceRadius * 2,
             border: "5px double black",
             borderRadius: "50%",
-            fontSize: pieceRadius * 1.5,
+            fontSize: pieceRadius * 1.15,
             textAlign: "center",
             backgroundColor: "#F9DB9F",
             position: "relative",
