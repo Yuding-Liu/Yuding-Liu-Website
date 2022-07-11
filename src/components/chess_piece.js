@@ -9,7 +9,7 @@ export function getPositionByColAndRow(col, row) {
 
     var style = chessBoard.currentStyle || window.getComputedStyle(chessBoard);
 
-    var bottom = -12 + row * 61.5;
+    var bottom = -2 + row * 61.5;
     var right = -60 + parseFloat(style.marginRight) + col * 61.5;
     return {
         bottom: bottom,
@@ -42,8 +42,10 @@ class ChessPiece extends React.Component {
         }
 
         return e(
-            'p', {
-                style: chessStyle
+            'button', {
+                style: chessStyle,
+                name: "position",
+                value: this.props.col + " " + this.props.row
             },
             this.props.pieceType
         );

@@ -150,6 +150,28 @@ router.get('/chess', function (req, res, next) {
 });
 
 
+router.post('/chess', (req, res) => {
+    const positionString = req.body.position;
+    const positionArray = positionString.split(' ');
+    const col = parseInt(positionArray[0]);
+    const row = parseInt(positionArray[1]);
+    console.log(col);
+    console.log(row);
+    handleClickPiece(col, row);
+    res.render('chess', {
+        user: req.user,
+        chessPieceInfo: chessPieceInfo,
+        gameInfo: gameInfo,
+        boardsInfo: boardsInfo
+    });
+  });
 
+async function handleClickPiece(col, row) {
+    const game = await Game.findOne();
+    game.pieceSelectedIndicator1Col = col;
+    game.pieceSelectedIndicator1Row = row;
+    await fetchDataFromDb();
+    await game.save();
+}
 
 module.exports = router;
