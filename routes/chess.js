@@ -155,23 +155,24 @@ router.post('/chess', (req, res) => {
     const positionArray = positionString.split(' ');
     const col = parseInt(positionArray[0]);
     const row = parseInt(positionArray[1]);
-    console.log(col);
-    console.log(row);
     handleClickPiece(col, row);
-    res.render('chess', {
-        user: req.user,
-        chessPieceInfo: chessPieceInfo,
-        gameInfo: gameInfo,
-        boardsInfo: boardsInfo
-    });
+
+    setTimeout(() => {
+        res.render('chess', {
+            user: req.user,
+            chessPieceInfo: chessPieceInfo,
+            gameInfo: gameInfo,
+            boardsInfo: boardsInfo
+        });
+    }, 50); 
   });
 
 async function handleClickPiece(col, row) {
     const game = await Game.findOne();
     game.pieceSelectedIndicator1Col = col;
     game.pieceSelectedIndicator1Row = row;
-    await fetchDataFromDb();
     await game.save();
+    await fetchDataFromDb();
 }
 
 module.exports = router;
