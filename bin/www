@@ -8,6 +8,17 @@ var app = require('../app');
 var debug = require('debug')('todos:server');
 var http = require('http');
 
+//socket.io related stuff
+
+const io = require('socket.io')(http);
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('db updated', msg => {
+    io.emit('db updated', msg);
+  });
+});
+
 /**
  * Get port from environment and store in Express.
  */

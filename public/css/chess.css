@@ -32,6 +32,7 @@ h1 {
     position: absolute;
     width: 88px;
     height: auto;
+    opacity: 0;
 }
 
 #chessGameOptions {
@@ -48,4 +49,8 @@ h1 {
 	color: white;
 	border-radius: 5px;
 	background: #d83f45;
+}
+
+#hiddenForm {
+    opacity: 0;
 }

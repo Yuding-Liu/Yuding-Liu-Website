@@ -24,22 +24,26 @@
 				<img src="/images/xiangqiboard.png" class="chessBoardImg" alt="Board">
 
 				<img src="/images/pieceSelected.png" class="pieceSelectedIndicator" id="pieceSelectedIndicator1"
-					data-col=<%= gameInfo.pieceSelectedIndicator1Col %>
+					data-col=<%=gameInfo.pieceSelectedIndicator1Col %>
 				data-row=<%= gameInfo.pieceSelectedIndicator1Row %> >
+
 					<!-- <img src="/images/pieceSelected.png" class="pieceSelectedIndicator" id="pieceSelectedIndicator2"> -->
 
 					<% chessPieceInfo.forEach(function(chessPieceInfoItem) { %>
 						<form action="/chess" method="post">
-								<div class="chess_piece_container" 
-								data-piecetype=<%=chessPieceInfoItem.piecetype %>
-									data-piececolor=<%= chessPieceInfoItem.piececolor %> data-insideboard=<%=
-											chessPieceInfoItem.insideboard %>
-											data-col=<%= chessPieceInfoItem.col %> data-row=<%= chessPieceInfoItem.row %>
-													id=<%= chessPieceInfoItem.id %>>
-								</div>
-							
+							<div class="chess_piece_container" data-piecetype=<%=chessPieceInfoItem.piecetype %>
+								data-piececolor=<%= chessPieceInfoItem.piececolor %> data-insideboard=<%=
+										chessPieceInfoItem.insideboard %>
+										data-col=<%= chessPieceInfoItem.col %> data-row=<%= chessPieceInfoItem.row %>
+												id=<%= chessPieceInfoItem.id %>>
+							</div>
+
 						</form>
 						<% }); %>
+
+							<form action="/updateChess" method="post" id="hiddenForm">
+								<input type="hidden">
+							</form>
 			</div>
 
 		</section>
@@ -50,6 +54,19 @@
 		</section>
 
 		<!-- <script src="/behaviors/chessPieceBehavior.js" type="module"></script> -->
+		<script type="module">
+			import { io } from "https://cdn.socket.io/4.4.1/socket.io.esm.min.js";
+		  
+			const socket = io();
+		  </script>
+		<script>
+			socket.emit('db updated', "db updated!!!!");
+
+			socket.on('db updated', function (msg) {
+				var form = document.getElementById("hiddenForm");
+				form.submit();
+			});
+		</script>
 		<script src="/behaviors/pieceSelectedIndicatorBehavior.js" type="module"></script>
 
 		<!-- Load React. -->

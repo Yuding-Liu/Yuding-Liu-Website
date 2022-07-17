@@ -55,7 +55,7 @@ async function main() {
             });
         }
     }
-    
+
     async function serializeChessGameData() {
         var games = await Game.find();
         if (games.length == 0) {
@@ -99,7 +99,7 @@ var boardsInfo = new Array();
 async function fetchDataFromDb() {
     var pieces = await Piece.find();
     // pieces.sort((a, b) => a.problemId - b.problemId);
-    
+
     chessPieceInfo = [];
     pieces.forEach(element => {
         chessPieceInfo.push({
@@ -111,7 +111,7 @@ async function fetchDataFromDb() {
             row: parseInt(element.row)
         })
     });
-    
+
     chessPieceInfo.sort((a, b) => a.id - b.id);
 
     var games = await Game.find();
@@ -149,6 +149,18 @@ router.get('/chess', function (req, res, next) {
     });
 });
 
+router.post('/updateChess', (req, res) => {
+    fetchDataFromDb();
+
+    setTimeout(() => {
+        res.render('chess', {
+            user: req.user,
+            chessPieceInfo: chessPieceInfo,
+            gameInfo: gameInfo,
+            boardsInfo: boardsInfo
+        });
+    }, 50);
+});
 
 router.post('/chess', (req, res) => {
     const positionString = req.body.position;
@@ -164,8 +176,8 @@ router.post('/chess', (req, res) => {
             gameInfo: gameInfo,
             boardsInfo: boardsInfo
         });
-    }, 50); 
-  });
+    }, 50);
+});
 
 async function handleClickPiece(col, row) {
     const game = await Game.findOne();
